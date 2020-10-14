@@ -1,6 +1,6 @@
 package zzzzz;
 
-public abstract class option {
+public abstract class option implements Ioptions {
 boolean enable=false ;
 String[] small ;
 
