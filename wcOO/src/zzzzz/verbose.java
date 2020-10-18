@@ -2,7 +2,7 @@ package zzzzz;
 
 public class verbose extends option { 
 	
-	String verb="" ;
+	static String verb="" ;
 	public verbose(String ... sma) {
 		super();
 
@@ -13,7 +13,7 @@ public class verbose extends option {
 	
 	// process each character to fill the string needed for the verbose :
 	//when find charcter put c, when \n put l ; find space, or"," or space  add w 
-	public void getstring(char c ,char w,String is) { 
+	public static void getstring(char c ,char w,String is) { 
 String s=""+c ;
 		if (is.toString().contains(s)) {
 			verb=verb+w ; }

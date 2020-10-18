@@ -11,7 +11,17 @@ public abstract class counter implements Icounter {
 	counter( ) { 
 	 ;
 	}
- public abstract void process(char c,boolean verb) ;
+ public  void process(char c)  { 
+	 if (compareto(c)) { 
+		 incrementcount() ;
+		 
+	 }
+ }
+ 
+ 
+ 
+ abstract boolean compareto(char c) ; 
+ abstract void incrementcount() ;
  public int getcount(){
 	 return count ;
  }

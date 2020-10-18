@@ -28,20 +28,22 @@ public class wcOO {
 	// creating the options 
 	// this allows to creates as many option types as we want before starting the program 
 	// this defines the options availbale 
-	static verbose verbose = new verbose("-v", "-verbose");
-	static help help = new help("-h","-? " ,"-help");
-	static banner banner = new banner("-b", "-banner");
+	static verbose verbose = optionfactory.getverbose();
+	static help help = optionfactory.gethelp();
+	static banner banner = optionfactory.getbanner();
 
-	static ArrayList<option> options = new ArrayList<>();
+
 // main :
 	public static void main(String[] args) {
 		// check if the array args is  empty 
-	if (args.length==0) {
+		 optioncontainer options = new optioncontainer(help,banner,verbose) ;
+		String[] ad = {"linecount","-h","-v","-b","C:\\Users\\amine bechrifa\\Desktop\\1.txt"} ;
+	if (ad.length==0) {
 		System.out.print("wrong number of argument \n usage : WC00 [counter_type] [options] [arguments]");
 		return ;
 	}
 	// check if there is a command (charcount, wordcount, .. )
-		String[] ad = args ;
+		
 		String command=null ;
 		if (counterfactory.getcounter(ad[0]) != null) {
 			command=ad[0] ;
@@ -49,12 +51,9 @@ public class wcOO {
 		}
 		
 		// add the options defined before the main to the array list options tp store the possible options for this program 
-		options.add(help);
-		options.add(banner);
-		options.add(verbose);
 
 		// creating object administrator with the available options (to compare with it )
-		administrator admin = new administrator(ad, options);
+		administrator admin = new administrator(ad, options.options);
 		
 		
 		int sumchar = 0;
@@ -86,7 +85,7 @@ public class wcOO {
 						// filling the string for the verbose 
 						verbose.getstring(c,cou.verbose,cou.checkers) ;
 						// we got the type of counter at the beginig and now process the content of the file 
-						cou.process(c, admin.options.get(2).enable);
+						cou.process(c);
 
 					}
 				} catch (IOException e) {
@@ -111,14 +110,14 @@ public class wcOO {
 // the case where the commandline does not specify which counter to use : execute all of them 
 		} else {
 			// create array of counters 
-			counter[] cou = new counter[3];
+			countercontainer cou ;
 			cou = counterfactory.createcounter();
-			help.doption(cou[0].help);
-			banner.doption(cou[0].banner);
-			help.doption(cou[1].help);
-			banner.doption(cou[1].banner);
-			help.doption(cou[2].help);
-			banner.doption(cou[2].banner);
+			help.doption(cou.sc[0].help);
+			banner.doption(cou.sc[0].banner);
+			help.doption(cou.sc[1].help);
+			banner.doption(cou.sc[1].banner);
+			help.doption(cou.sc[2].help);
+			banner.doption(cou.sc[2].banner);
 			
 
 			char c;
@@ -142,9 +141,9 @@ public class wcOO {
 						verbose.getstring(c,'c') ;
 
 						// for all the counters ,  process the content of the file 
-						cou[0].process(c, admin.options.get(2).enable);
-						cou[1].process(c, admin.options.get(2).enable);
-						cou[2].process(c, admin.options.get(2).enable);
+						cou.sc[0].process(c);
+						cou.sc[1].process(c);
+						cou.sc[2].process(c);
 
 					}
 				} catch (IOException e) {
@@ -158,16 +157,16 @@ public class wcOO {
 				// output the string relative to each option that corresponds to the counter 
 				verbose.doption(); 
 
-				System.out.print("\ncharcounting   " + cou[0].getcount());
-				System.out.print("\nwordcounting   " + cou[1].getcount());
-				System.out.print("\nlinecounting   " + cou[2].getcount()+"\n");
-				sumchar += cou[0].getcount();
-				sumword += cou[1].getcount();
-				sumline += cou[2].getcount();
+				System.out.print("\ncharcounting   " + cou.sc[0].getcount());
+				System.out.print("\nwordcounting   " + cou.sc[1].getcount());
+				System.out.print("\nlinecounting   " + cou.sc[2].getcount()+"\n");
+				sumchar += cou.sc[0].getcount();
+				sumword += cou.sc[1].getcount();
+				sumline += cou.sc[2].getcount();
 				verbose.clean(); 
-				cou[0].cleancount();
-				cou[1].cleancount();
-				cou[2].cleancount();
+				cou.sc[0].cleancount();
+				cou.sc[1].cleancount();
+				cou.sc[2].cleancount();
 			}
 		
 		}if (command!=null)

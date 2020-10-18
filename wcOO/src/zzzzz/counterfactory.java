@@ -5,12 +5,13 @@ public class counterfactory {
 	
 	
 	// create one instance of each counter in an array 
-static counter[]	createcounter() {
+static countercontainer	createcounter() {
 	counter[] c=new counter[3] ; 
 	c[0]=new charcounter() ;
 	c[1]=new wordcounter() ;
 	c[2]=new linecounter() ;
-	return c;
+	countercontainer cf=new countercontainer(c) ;
+	return cf;
 		
 	}
 // return an instance of counter corresponding to the input string
@@ -26,4 +27,8 @@ static counter getcounter(String s ) {
 	}
 	return null ; 
 }
+
+
+
+
 }

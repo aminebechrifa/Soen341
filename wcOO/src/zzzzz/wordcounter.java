@@ -19,14 +19,15 @@ public class wordcounter extends counter {
 	 }
 	 
 	 // increment the counter 
-public void process(char c,boolean verb) {
 
-	
-	if ((c=='\n')||(c==' ')||(c==',')) {
 
-	this.count++ ;	}
-	}
-	
+boolean compareto(char c){ 
+	return ((c=='\n')||(c==' ')||(c==',')) ;
+}
+
+void incrementcount() { 
+	count++ ;
+}
 	
 	
 	

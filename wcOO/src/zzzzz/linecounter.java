@@ -17,15 +17,15 @@ public class linecounter extends counter {
 	 public int getcount(){
 		 return count+1 ;
 	 }
-	 
+	 boolean compareto(char c){ 
+			return (c=='\n') ;
+		}
+
+		void incrementcount() { 
+			count++ ;
+		}
 	 // increment the counter 
-public void process(char c,boolean verb) {
 
-	
-	if (c=='\n') {
-
-	this.count++ ;	}
-	}
 	
 	
 	

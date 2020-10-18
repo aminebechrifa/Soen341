@@ -10,24 +10,28 @@ public class charcounter extends counter {
 		 		+ "Written by AMINE BECHRIFA\r\n"
 		 		+ "" ;
 		 verbose='c' ;
+		 checkers="qwertyuiop[]\\asdfghjkl;'zxcvbnm,./123564897+-*/QWERTYUIOP[[]ASDFJKGHL;ALSDK'ZXCVBNM,./|`" ;
 
 
 	}
 	
 	
 	 // increment the counter 
-public void process(char c,boolean verb) {
-if (verb) {
-	System.out.print(this.verbose);
-}
-	this.count++ ;	
 
-	}
+boolean compareto(char c){ 
+	return true ;
+}
+
+void incrementcount() { 
+	count++ ;
+}
 //return variable 
 	public int getcount() {
 		return count ;
 	}
-	
+
+
+
 	
 	
 }
