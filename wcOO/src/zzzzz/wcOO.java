@@ -68,6 +68,7 @@ public class wcOO {
 	
 	
 			char c;
+			verbose.getstring(cou.checkers.charAt(0),cou.verbose,cou.checkers) ;
 			// for each file 
 			for (int i = 0; i < admin.q.size(); i++) {
 				FileInputStream srcStream;
@@ -124,6 +125,8 @@ public class wcOO {
 		// for each file 
 			for (int i = 0; i < admin.q.size(); i++) {
 // open the file 
+				verbose.getstring(' ','w'," ,\n") ;
+				verbose.getstring('\n','l',"\n") ;
 				FileInputStream srcStream;
 				try {
 					srcStream = new FileInputStream(admin.q.get(i));

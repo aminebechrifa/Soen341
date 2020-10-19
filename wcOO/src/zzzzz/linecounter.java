@@ -7,7 +7,7 @@ public class linecounter extends counter {
 		 help="usage : linecount [option] [argument]" ;
 		 banner="wordcount Version 1.1\r\n"
 		 		+ "Copyright (C) ABC Inc 2020. All Rights Reserved.\r\n"
-		 		+ "Written by AMINNE BECHRIFA\r\n"
+		 		+ "Written by AMINE BECHRIFA\r\n"
 		 		+ "" ;
 		 verbose='l' ;
 		 checkers="\n" ;

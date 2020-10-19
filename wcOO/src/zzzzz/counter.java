@@ -19,9 +19,9 @@ public abstract class counter implements Icounter {
  }
  
  
- 
- abstract boolean compareto(char c) ; 
- abstract void incrementcount() ;
+	 
+	 abstract boolean compareto(char c) ; 
+	 abstract void incrementcount() ;
  public int getcount(){
 	 return count ;
  }
